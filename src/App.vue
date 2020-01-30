@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <keep-alive exclude="Detail"><router-view></router-view></keep-alive>
+    <tab-bar>
+      <tab-bar-item path="/index">
+        <i slot="tab-icon" class="icon-style fa fa-home"></i>
+        <div slot="tab-text" class="tab-font">首页</div>
+      </tab-bar-item>
+      <tab-bar-item path="/category">
+        <i slot="tab-icon" class="fa fa-cubes icon-style"></i>
+        <div slot="tab-text" class="tab-font">分类</div>        
+      </tab-bar-item>
+      <tab-bar-item path="/shop">
+        <i slot="tab-icon" class="fa fa-shopping-cart icon-style"></i>
+        <div slot="tab-text" class="tab-font">购物车</div>        
+      </tab-bar-item>
+      <tab-bar-item path="/profile">
+        <i slot="tab-icon" class="fa fa-home icon-style"></i>
+        <div slot="tab-text" class="tab-font">我的</div>        
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TabBar from './components/comps/TabBar'
+import TabBarItem from './components/comps/TabBarItem'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TabBar,
+    TabBarItem
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+
+  .icon-style {
+    font-size: 20px;
+    margin: 10px 0 2px 0;
+  }
+  .tab-font {
+    font-size: 12px;
+  }
 </style>
